@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ListPeopleComponent, InsertPeopleComponent } from './people';
+import {
+  ListPeopleComponent,
+  InsertPeopleComponent,
+  EditPeopleComponent,
+} from './people';
 
 const routes: Routes = [
   { path: '', redirectTo: 'people/list', pathMatch: 'full' },
@@ -13,6 +17,10 @@ const routes: Routes = [
   {
     path: 'people/new',
     component: InsertPeopleComponent,
+  },
+  {
+    path: 'people/update/:id',
+    component: EditPeopleComponent,
   },
 ];
 
