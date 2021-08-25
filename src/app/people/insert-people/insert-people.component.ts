@@ -4,14 +4,13 @@ import { Router } from '@angular/router';
 import { People } from 'src/app/shared/models';
 import { PeopleService } from '../services/people.service';
 
-@ViewChild('formPeople')
 @Component({
   selector: 'app-insert-people',
   templateUrl: './insert-people.component.html',
   styleUrls: ['./insert-people.component.css'],
 })
 export class InsertPeopleComponent implements OnInit {
-  formPeople! : NgForm;
+  @ViewChild('formPeople') formPeople!: NgForm;
   people: People = {};
   constructor(private pessoaService: PeopleService, private router: Router) {}
 
