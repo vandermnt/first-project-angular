@@ -1,0 +1,43 @@
+<h1>Editar Pessoa</h1>
+<div class="well">
+  <form #formPeople="ngForm">
+    <div class="form-group">
+      <label for="name">Nome:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        [(ngModel)]="people.name"
+        #name="ngModel"
+        minlength="2"
+        required
+      />
+      <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+        <div [hidden]="!name.errors?.required">Digite o nome da pessoa.</div>
+        <div [hidden]="!name.errors?.minlength">O nome deve conter ao menos 2 caracteres.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="age">Idade:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="age"
+        name="age"
+        [(ngModel)]="people.age"
+        #age="ngModel"
+        required
+      />
+      <div *ngIf="age.errors && (age.dirty || age.touched)" class="alert alert-danger">
+        <div [hidden]="!age.errors?.required">Digite a idade da pessoa.</div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="update()" [disabled]="!formPeople.form.valid">
+        <i class="fa fa-save" aria-hidden="true"></i> Atualizar
+      </button>
+      <a class="btn btn-secondary" [routerLink]="['/people']">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+      </a>
+    </div>
+  </form>
+</div>

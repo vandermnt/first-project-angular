@@ -17,7 +17,7 @@ export class PeopleService {
   insert(people: People): void {
     const peoples = this.listAll();
     people.id = new Date().getTime();
-
+    console.log(peoples);
     peoples.push(people);
 
     localStorage[KEY_LOCAL_STORAGE] = JSON.stringify(peoples);
@@ -31,14 +31,14 @@ export class PeopleService {
 
   update(people: People): void {
     const peoples: People[] = this.listAll();
-
     peoples.forEach((element: any, index: any, objs: any) => {
       if (people.id === element.id) {
+        console.log(people);
         objs[index] = people;
       }
     });
 
-    localStorage[KEY_LOCAL_STORAGE] = JSON.stringify(people);
+    localStorage[KEY_LOCAL_STORAGE] = JSON.stringify(peoples);
   }
 
   delete(id: number): void {
