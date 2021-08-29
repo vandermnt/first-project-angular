@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { People } from 'src/app/shared/models';
+import { People, Address } from 'src/app/shared/models';
 import { PeopleService } from '../services/people.service';
 
 @Component({
@@ -12,14 +12,16 @@ import { PeopleService } from '../services/people.service';
 export class InsertPeopleComponent implements OnInit {
   @ViewChild('formPeople') formPeople!: NgForm;
   people: People = {};
-  constructor(private pessoaService: PeopleService, private router: Router) {}
+  address: Address = {};
+  constructor(private peopleService: PeopleService, private router: Router) {}
 
   ngOnInit(): void {
+    this.address = new Address();
     this.people = new People();
   }
 
   insert(): void {
-    this.pessoaService.insert(this.people);
+    this.peopleService.insert(this.people, this.address);
     this.router.navigate(['/people']);
   }
 }

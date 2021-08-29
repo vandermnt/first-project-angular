@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { People } from '../../shared/models';
+import { People, Address } from '../../shared/models';
 
 const KEY_LOCAL_STORAGE: string = 'people';
 
@@ -14,11 +14,14 @@ export class PeopleService {
     return people ? JSON.parse(people) : [];
   }
 
-  insert(people: People): void {
+  insert(people: People, address: Address): void {
     const peoples = this.listAll();
     people.id = new Date().getTime();
-    console.log(peoples);
+    people.address = address;
+
     peoples.push(people);
+
+    console.log(people);
 
     localStorage[KEY_LOCAL_STORAGE] = JSON.stringify(peoples);
   }

@@ -20,4 +20,13 @@ export class ListPeopleComponent implements OnInit {
   listAll(): People[] {
     return this.peopleservice.listAll();
   }
+
+  delete($event: any, people: People): void {
+    $event.preventDefault();
+
+    if (confirm(`Deseja realmente remover essa pessoa ${people.name} ?`)) {
+      this.peopleservice.delete(people.id || 0);
+      this.people = this.listAll();
+    }
+  }
 }
