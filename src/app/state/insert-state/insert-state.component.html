@@ -1,0 +1,60 @@
+<h1>Novo Estado</h1>
+<div class="well">
+  <form #formState="ngForm" (ngSubmit)="insert()">
+    <div class="form-group">
+      <label for="name">Estado:</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="state.name"
+        #name="ngModel"
+        id="name"
+        name="nome"
+        minlength="2"
+        required
+      />
+      <div
+        *ngIf="name.errors && (name.dirty || name.touched)"
+        class="alert alert-danger"
+      >
+        <div [hidden]="!name.errors?.required">Digite o nome do estado</div>
+        <div [hidden]="!name.errors?.minlength">
+          O nome deve conter ao menos 2 caracteres.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="idade">Sigla:</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="state.initials"
+        #initials="ngModel"
+        id="initials"
+        name="initials"
+        required
+      />
+      <div
+        *ngIf="initials.errors && (initials.dirty || initials.touched)"
+        class="alert alert-danger"
+      >
+        <div [hidden]="!initials.errors?.required">Digite a sigla do estado</div>
+      </div>
+
+      <br />
+    </div>
+
+    <br />
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!formState.form.valid"
+    >
+      <i class="fa fa-save" aria-hidden="true"></i> Salvar
+    </button>
+    <a class="btn btn-secondary">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+    </a>
+    <br /><br />
+  </form>
+</div>
