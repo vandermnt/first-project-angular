@@ -15,9 +15,9 @@
         <td> {{ state.name }}</td>
         <td> {{ state.initials }}</td>
         <td class="text-center" style="width: 300px">
-          <!-- <a [routerLink]="['/state/update', state.id]" href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+          <a [routerLink]="['/state/update', state.id]" href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
             <i class="fa fa-edit" aria-hidden="true"></i> Editar
-          </a> -->
+          </a>
           <a (click)="delete($event, state)" href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger">
             <i class="fa fa-times" aria-hidden="true"></i> Remover
           </a>

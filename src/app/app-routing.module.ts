@@ -7,7 +7,13 @@ import {
   EditPeopleComponent,
 } from './people';
 
-import { ListStateComponent, InsertStateComponent } from './state';
+import {
+  ListStateComponent,
+  InsertStateComponent,
+  EditStateComponent,
+} from './state';
+
+import { ListCityComponent, InsertCityComponent } from './city';
 
 const routes: Routes = [
   { path: '', redirectTo: 'people/list', pathMatch: 'full' },
@@ -33,6 +39,19 @@ const routes: Routes = [
   {
     path: 'state/new',
     component: InsertStateComponent,
+  },
+  {
+    path: 'state/update/:id',
+    component: EditStateComponent,
+  },
+  { path: 'city', redirectTo: 'city/list', pathMatch: 'full' },
+  {
+    path: 'city/list',
+    component: ListCityComponent,
+  },
+  {
+    path: 'city/new',
+    component: InsertCityComponent,
   },
 ];
 

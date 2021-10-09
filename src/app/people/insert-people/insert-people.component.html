@@ -32,6 +32,9 @@
         #age="ngModel"
         id="age"
         name="age"
+        numeric
+        minimumAgeValidator
+        minimumValue="18"
         required
       />
       <div
@@ -39,6 +42,7 @@
         class="alert alert-danger"
       >
         <div [hidden]="!age.errors?.required">Digite a idade da pessoa.</div>
+        <div [hidden]="!age.errors?.minimo"> Idade deve ser maior ou igual a 18</div>
       </div>
 
       <label for="birthDate">Data de Nasc.:</label>
@@ -49,6 +53,7 @@
         #birthDate="ngModel"
         id="birthDate"
         name="birthDate"
+        mask="d0/m0/0000"
         required
       />
       <div

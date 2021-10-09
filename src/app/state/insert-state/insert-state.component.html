@@ -38,7 +38,9 @@
         *ngIf="initials.errors && (initials.dirty || initials.touched)"
         class="alert alert-danger"
       >
-        <div [hidden]="!initials.errors?.required">Digite a sigla do estado</div>
+        <div [hidden]="!initials.errors?.required">
+          Digite a sigla do estado
+        </div>
       </div>
 
       <br />
@@ -46,13 +48,14 @@
 
     <br />
     <button
-      type="submit"
+      type="button"
+      (click)="insert()"
       class="btn btn-primary"
       [disabled]="!formState.form.valid"
     >
       <i class="fa fa-save" aria-hidden="true"></i> Salvar
     </button>
-    <a class="btn btn-secondary">
+    <a class="btn btn-secondary" [routerLink]="['/state']">
       <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
     </a>
     <br /><br />

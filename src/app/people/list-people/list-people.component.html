@@ -15,7 +15,7 @@
       <tr *ngFor="let people of people">
         <td> {{ people.name }}</td>
         <td> {{ people.age }}</td>
-        <td> {{ people.birthDate }}</td>
+        <td> {{ people.birthDate | mask: 'd0/m0/0000' }}</td>
         <td class="text-center" style="width: 300px">
           <a [routerLink]="['/people/update', people.id]" href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
             <i class="fa fa-edit" aria-hidden="true"></i> Editar
