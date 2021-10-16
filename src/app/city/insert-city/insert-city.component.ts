@@ -28,7 +28,7 @@ export class InsertCityComponent implements OnInit {
 
   insert(): void {
     if (this.formCity.form.valid) {
-      console.log(this.city);
+      console.log(this.formCity);
       this.cityService.insert(this.city);
       this.router.navigate(['/city']);
     }

@@ -18,16 +18,16 @@ export class NumericDirective implements ControlValueAccessor {
   constructor(private elementRef: ElementRef) {}
 
   writeValue(obj: any): void {
-    throw new Error('Method not implemented.');
+    this.elementRef.nativeElement.value = obj;
   }
   registerOnChange(fn: any): void {
-    throw new Error('Method not implemented.');
+    this.onChange = fn;
   }
   registerOnTouched(fn: any): void {
-    throw new Error('Method not implemented.');
+    this.onTouched = fn;
   }
 
-  @HostListener('keyup!', ['$event'])
+  @HostListener('keyup', ['$event'])
   onKeyUp($event: any) {
     let value = $event.target.value;
 
