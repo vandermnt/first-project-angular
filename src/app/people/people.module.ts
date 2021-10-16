@@ -11,6 +11,7 @@ import { EditPeopleComponent } from './edit-people/edit-people.component';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { SharedModule } from '../shared';
+import { ModalPeopleComponent } from './modal-people/modal-people.component';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
@@ -18,6 +19,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ListPeopleComponent,
     InsertPeopleComponent,
     EditPeopleComponent,
+    ModalPeopleComponent,
   ],
   imports: [
     CommonModule,

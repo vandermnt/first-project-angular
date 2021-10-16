@@ -3,30 +3,58 @@
   <table class="table table-striped table-bordered table-hover">
     <tbody>
       <tr>
-        <th> Nome </th>
-        <th> Idade</th>
-        <th> Data Nasc.</th>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Data Nasc.</th>
         <th class="text-center">
-          <a [routerLink]="'/people/new'" href="#" title="Novo" alt="Novo" class="btn btn-xs btn-success">
+          <a
+            [routerLink]="'/people/new'"
+            href="#"
+            title="Novo"
+            alt="Novo"
+            class="btn btn-xs btn-success"
+          >
             <i class="fa fa-plus" aria-hidden="true"></i> Novo
           </a>
         </th>
       </tr>
       <tr *ngFor="let people of people">
-        <td> {{ people.name! ? people.name : 'NAME NOT FOUND' | myPipeUpperCase }}</td>
-        <td> {{ people.age }}</td>
-        <td> {{ people.birthDate! | mask: 'd0/m0/0000' }}</td>
+        <td>
+          {{
+            people.name! ? people.name : ("NAME NOT FOUND" | myPipeUpperCase)
+          }}
+        </td>
+        <td>{{ people.age }}</td>
+        <td>{{ people.birthDate! | mask: "d0/m0/0000" }}</td>
         <td class="text-center" style="width: 300px">
-          <a [routerLink]="['/people/update', people.id]" href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+          <a
+            [routerLink]="['/people/update', people.id]"
+            href="#"
+            title="Editar"
+            alt="Editar"
+            class="btn btn-xs btn-info"
+          >
             <i class="fa fa-edit" aria-hidden="true"></i> Editar
           </a>
-          <a (click)="delete($event, people)" href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger">
+          <a
+            (click)="delete($event, people)"
+            href="#"
+            title="Remover"
+            alt="Remover"
+            class="btn btn-xs btn-danger"
+          >
             <i class="fa fa-times" aria-hidden="true"></i> Remover
           </a>
+          <button
+            type="button"
+            class="btn btn-xs btn-info"
+            (click)="openModalPeople(people)"
+          >
+            <i class="fa fa-eye" aria-hidden="true"></i> Ver
+          </button>
         </td>
       </tr>
     </tbody>
   </table>
-<p *ngIf="people.length===0">Nenhuma people cadastrada.</p>
+  <p *ngIf="people.length === 0">Nenhuma people cadastrada.</p>
 </div>
-
